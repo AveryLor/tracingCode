@@ -3,7 +3,7 @@ import numpy as np
 from scipy.integrate import simps
 
 # Step 1: Load the glacier image
-image_path = "your_image_path_here.png"  # Replace with the path to your glacier image
+image_path = "C:\\Users\\avery\\AveryLorVSCode\\modellingEssayCode\\1918-GlacierImage.png"  # Replace with the path to your glacier image
 img = plt.imread(image_path)
 
 # Display the image
