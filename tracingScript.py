@@ -46,14 +46,14 @@ x_points_meters = x_points * pixel_to_meter
 y_points_meters = y_points * pixel_to_meter
 
 # Use the trapezoidal rule or Simpson's rule for numerical integration
-area = simps(y_points_meters, x_points_meters)
+# area = simps(y_points_meters, x_points_meters)
 
 # Step 5: Estimate the volume
-volume = area * depth_of_glacier
+#volume = area * depth_of_glacier
 
 # Display results
-print(f"Cross-sectional Area: {area:.2f} square meters")
-print(f"Estimated Glacier Volume: {volume:.2f} cubic meters")
+#print(f"Cross-sectional Area: {area:.2f} square meters")
+#print(f"Estimated Glacier Volume: {volume:.2f} cubic meters")
 
 # Optional: Save traced data for later use
 np.savetxt("glacier_outline.csv", glacier_outline, delimiter=",", header="x,y", comments="")
