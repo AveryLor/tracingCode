@@ -1,58 +1,35 @@
-import matplotlib.pyplot as plt
 import numpy as np
-from numpy.polynomial.polynomial import Polynomial
+import matplotlib.pyplot as plt
 
-# Load the glacier image
-image_path = "1918-GlacierImage.png"  # Adjust the file path if needed
-img = plt.imread(image_path)
+# Step 1: Example of x and y values (replace these with your traced data)
+# Traced data points (x, y) for the glacier outline
+x = np.array([0, 17, 26, 42, 115.4, 154, 180,200,240,320,345,400,410,470])  # Example x-values (replace with your data)
+y = np.array([128, 110, 61, 108, 90, 89, 105,100,120,122,114,120,122,150])  # Example y-values (replace with your data)
 
-# Display the image
-plt.imshow(img)
-plt.title("Trace the Glacier Outline")
-plt.xlabel("Width (pixels)")
-plt.ylabel("Height (pixels)")
-plt.gca().invert_yaxis()  # Invert y-axis scale for natural tracing
-plt.show()
+# Step 2: Fit a polynomial to the data
+degree = 11  # Degree of the polynomial (adjust this as needed)
+coeffs = np.polyfit(x, y, degree)
 
-print("Click along the glacier outline to trace its shape. Double-click to finish.")
+# Step 3: Print the polynomial coefficients
+print(f"Polynomial coefficients (degree {degree}): {coeffs}")
 
-# Step 1: Trace the glacier outline
-glacier_outline = plt.ginput(n=-1, timeout=0, show_clicks=True)
-glacier_outline = np.array(glacier_outline)
+# Step 4: Create a polynomial function from the coefficients
+polynomial = np.poly1d(coeffs)
 
-# Separate x and y points
-x_points = glacier_outline[:, 0]
-y_points = glacier_outline[:, 1]
+# Step 5: Generate x values for the polynomial curve
+x_fit = np.linspace(min(x), max(x), 100)
+y_fit = polynomial(x_fit)
 
-# Save the traced points to a CSV file
-np.savetxt("glacier_outline.csv", glacier_outline, delimiter=",", header="x,y", comments="")
-print("Traced points saved to glacier_outline.csv.")
-
-# Step 2: Fit a polynomial to the traced points
-# Choose the degree of the polynomial (adjust as needed)
-degree = 5
-poly_coeffs = np.polyfit(x_points, y_points, degree)
-poly_func = np.poly1d(poly_coeffs)
-
-# Print polynomial coefficients
-print("Polynomial coefficients (highest degree first):")
-print(poly_coeffs)
-
-# Generate x values for the polynomial curve
-x_poly = np.linspace(min(x_points), max(x_points), 500)
-y_poly = poly_func(x_poly)
-
-# Step 3: Plot the traced points and the fitted polynomial
-plt.imshow(img)
-plt.plot(x_points, y_points, 'ro', label="Traced Points")  # Traced points
-plt.plot(x_poly, y_poly, 'b-', label=f"Polynomial Fit (degree {degree})")  # Polynomial fit
-plt.gca().invert_yaxis()  # Ensure y-axis is inverted
-plt.title("Traced Glacier Outline with Polynomial Fit")
+# Step 6: Plot the data points and the polynomial fit
+plt.scatter(x, y, color='blue', label='Traced Points')  # Data points
+plt.plot(x_fit, y_fit, color='red', label=f'Polynomial Fit (degree {degree})')  # Polynomial fit
+plt.title("Polynomial Fit to Glacier Outline")
 plt.xlabel("Width (pixels)")
 plt.ylabel("Height (pixels)")
 plt.legend()
+plt.grid(True)
 plt.show()
 
-# Step 4: Save polynomial coefficients to a file
-np.savetxt("polynomial_coeffs.txt", poly_coeffs, header="Polynomial Coefficients (highest degree first)", comments="")
-print("Polynomial coefficients saved to polynomial_coeffs.txt.")
+# Step 7: Optionally, print the polynomial equation in a human-readable format
+print("Polynomial equation:")
+print(polynomial)
