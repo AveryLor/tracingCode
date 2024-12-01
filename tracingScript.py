@@ -3,8 +3,8 @@ import numpy as np
 #from scipy.integrate import quad
 
 # Step 1: Load the glacier image
-#image_path = "1918-GlacierImage.png"  
-image_path = "2018-GlacierImage.png"
+#image_path = "images/1918-GlacierImage.png"  
+image_path = "images/2018-GlacierImage.png"
 img = plt.imread(image_path)
 
 # Display the image
