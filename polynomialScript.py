@@ -10,7 +10,7 @@ y = np.array([49.1, 50, 45, 48, 42.2, 39.3, 35.1,35,32,25,23,20,17,10])  # 1918 
 
 
 # Step 2: Fit a polynomial to the data
-degree = 3  # Degree of the polynomial (adjust this as needed)
+degree = 2  # Degree of the polynomial (adjust this as needed)
 coeffs = np.polyfit(x, y, degree)
 
 # Step 3: Print the polynomial coefficients
@@ -25,10 +25,9 @@ y_fit = polynomial(x_fit)
 
 # Step 6: Plot the data points and the polynomial fit
 #plt.title("Polynomial Fit to 1918 Glacier Outline")
-plt.title("Polynomial Fit to 2018 Glacier Outline")
 plt.scatter(x, y, color='blue', label='Traced Points')  # Data points
 plt.plot(x_fit, y_fit, color='red', label=f'Polynomial Fit (degree {degree})')  # Polynomial fit
-plt.title("Polynomial Fit to Glacier Outline")
+plt.title("Polynomial Fit to 2018 Glacier Outline")
 plt.xlabel("Width (meters)")
 plt.ylabel("Height (meters)")
 plt.legend()
