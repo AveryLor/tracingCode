@@ -4,9 +4,9 @@ import matplotlib.pyplot as plt
 # Step 1: Example of x and y values (replace these with your traced data)
 # Traced data points (x, y) for the glacier outline
 x = np.array([0, 17, 26, 42, 115.4, 154, 180,200,240,320,345,400,410,470])  # 1918 x-values
-y = np.array([128, 110, 61, 108, 90, 89, 105,100,120,122,114,120,122,150])  # 1918 y-values
-#x = np.array([0, 17, 26, 42, 115.4, 154, 180,200,240,320,345,400,410,470])  # 1918 x-values
-#y = np.array([49.1, 50, 45, 48, 42.2, 39.3, 35.1,35,32,25,23,20,17,10])  # 1918 y-values
+y = np.array([128, 110, 61, 108, 90, 89, 105,100,120,122,114,120,122,150])  # 11918 y-values
+#x = np.array([0, 17, 26, 42, 115.4, 154, 180,200,240,320,345,400,410,470])  # 2018 x-values
+#y = np.array([49.1, 50, 45, 48, 42.2, 39.3, 35.1,35,32,25,23,20,17,10])  # 2018 y-values
 
 
 # Step 2: Fit a polynomial to the data

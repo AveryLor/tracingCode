@@ -1,7 +1,5 @@
 import matplotlib.pyplot as plt
 import numpy as np
-#from scipy.integrate import quad
-
 # Step 1: Load the glacier image
 #image_path = "images/1918-GlacierImage.png"  
 image_path = "images/2018-GlacierImage.png"
@@ -35,29 +33,5 @@ plt.gca().invert_yaxis()  # Invert the y-axis to make it go from 0 to 400 upward
 plt.show()
 
 
-# Step 4: Calculate the cross-sectional area using numerical integration
-# Scaling factor (pixels to real-world units)
-# Replace these with actual measurements or estimates
-pixel_to_meter = 1  # Conversion factor from pixels to meters
-depth_of_glacier = 1000  # Approximate depth of the glacier in meters
 
-# Convert pixel coordinates to meters
-x_points_meters = x_points * pixel_to_meter
-y_points_meters = y_points * pixel_to_meter
 
-# Use `quad` for numerical integration
-'''
-area, _ = quad(lambda x: np.interp(x, x_points_meters, y_points_meters), 
-               min(x_points_meters), 
-               max(x_points_meters))
-'''
-
-# Step 5: Estimate the volume
-volume = area * depth_of_glacier
-
-# Display results
-print(f"Cross-sectional Area: {area:.2f} square meters")
-print(f"Estimated Glacier Volume: {volume:.2f} cubic meters")
-
-# Optional: Save traced data for later use
-np.savetxt("glacier_outline.csv", glacier_outline, delimiter=",", header="x,y", comments="")
