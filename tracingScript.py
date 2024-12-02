@@ -7,7 +7,7 @@ img = plt.imread(image_path)
 
 # Display the image
 plt.imshow(img)
-plt.title("Trace the Glacier Outline")
+plt.title("Trace the Glacier Outline") 
 plt.xlabel("Width (pixels)")
 plt.ylabel("Height (pixels)")
 plt.show()
@@ -27,7 +27,6 @@ plt.legend()
 plt.title("Traced Glacier Outline")
 plt.xlabel("Width (pixels)")
 plt.ylabel("Height (pixels)")
-plt.gca().invert_yaxis()  # Invert the y-axis to make it go from 0 to 400 upwards
 plt.show()
 
 
