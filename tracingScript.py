@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 # Step 1: Load the glacier image
 #image_path = "images/1918-GlacierImage.png"  
-image_path = "images/2018-GlacierImage.png"
+image_path = "images/2018-GlacierImage.png" #Change which line is commented out based on which image you want to analyze
 img = plt.imread(image_path)
 
 # Display the image
@@ -11,8 +11,6 @@ plt.title("Trace the Glacier Outline")
 plt.xlabel("Width (pixels)")
 plt.ylabel("Height (pixels)")
 plt.show()
-
-print("Click along the glacier outline to trace its shape. Double-click to finish.")
 
 # Step 2: User traces the glacier's outline
 glacier_outline = plt.ginput(n=-1, timeout=0, show_clicks=True)
